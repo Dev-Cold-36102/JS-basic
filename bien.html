@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>khai bao va su dung bien</title>
+</head>
+<body>
+<h1 style="color:red;">BAI 1</h1>
+<script>
+    let i=10;
+    let f=20.5;
+    let b=true;
+    let s="ha noi";
+    document.write('i = ' + i);
+    document.write('<br/>');
+    document.write('f = ' + f);
+    document.write('<br/>');
+    document.write('b = ' + b);
+    document.write('<br/>');
+    document.write('s = ' + s);
+</script>
+<h1 style="color:red;"></h1>
+    <script>
+        let width = 20;
+        let height = 10;
+        let area = width * height;
+        document.write('Area = ' + area);
+    </script><br/>
+<button type="button" onclick="boiso();">nhap a,b</button>
+<script>
+    function boiso() {
+        var a=prompt("a=");
+        var b=prompt("b=");
+        if(b%a==0)
+        {
+            alert('b la boi so cua a');
+        }
+        else alert('b khong phai boi cua a');
+    }
+</script>
+</body>
+</html>
