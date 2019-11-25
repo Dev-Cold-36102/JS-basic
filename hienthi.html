@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hiển thị đầu ra</title>
+</head>
+<body>
+<h1 style="color:red;">BÀI TẬP 1</h1><br/>
+<button type="button" onclick="hienthi();">Nhấn vào đây</button>
+<script>
+    function hienthi() {
+        alert('NGẠC NHIÊN CHƯA?');
+    }
+</script><br/>
+<h1 style="color:red;">BÀI TẬP 2</h1>
+<!-BÀI TẬP 2>
+<button type="button" onclick="hienthi1();">Nhấn vao fđây</button><br/>
+<script>
+    function hienthi1() {
+
+        document.getElementById('hienthi').innerHTML ='ngạc nhiên chưa?';
+    }
+</script>
+<div id="hienthi"></div>
+<h1 style="color:red;">BÀI TẬP 3</h1>
+<button type="button" onclick="hienthi2();">nhấn vào đây</button>
+<script>
+    function hienthi2() {
+        document.write('ngạc nhiên chưa?');
+    }
+</script>
+<h1 style="color:red;">BÀI TẬP 4</h1>
+<button type="button" onclick="hienthi3();">nhán vào đây</button>
+<script>
+    function hienthi3() {
+        console.log('ngạc nhiên chưa?')
+    }
+</script>
+</body>
+</html>
