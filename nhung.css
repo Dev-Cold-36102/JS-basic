@@ -1,0 +1,8 @@
+<button type="button" onclick="alert('Xin chào các bạn');">click me!</button>
+                                                                      <h1 style="color:red;;">bài tập 2</h1>
+                                                                                                         <button type="button" onclick="nhanvaoday();">click me</button>
+                                                                                                                                                                 <script>
+                                                                                                                                                                 function nhanvaoday() {
+alert('xin chào các bạn');
+}
+</script>
