@@ -1,4 +1,5 @@
 function exe1() {
+    let browser=prompt('enter the browser:');
     switch (browser) {
         case 'Edge':
             alert("You've got the Edge!");
@@ -16,14 +17,14 @@ function exe1() {
 function exe2() {
     let a = prompt('a=');
     switch (a) {
-        case 0:
-            alert(0);
-            break;
-        case 1:
+        case '0':{
+            alert(1);
+            break;}
+        case '1':
             alert(1);
             break;
-        case 2:
-        case 3:
+        case '2':
+        case '3':
             alert("2,3");
             break;
     }
@@ -42,7 +43,7 @@ function exe3() {
 function exe4() {
     let value=prompt('enter the number:');
     switch (value) {
-        case 0:
+        case '0':
             alert(0);
             break;
 
