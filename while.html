@@ -2,9 +2,33 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>bai tap while</title>
 </head>
 <body>
+<h1 style="color:greenyellow;">bai tap 1</h1>
+<button type="button" onclick="total()">enter the number</button>
+<h1 style="color:greenyellow;">bai tap 2</h1>
+<button type="button" onclick="hr()">enter</button>
+<script>
+    function total() {
+        let num = prompt("Enter a number: ");
+        let total = 0;
+        while (num != -1) {
+            num = parseFloat(prompt("Enter a number: "));
+            total += num;
+        }
+        alert("total=" + total);
+    }
+    function hr() {
+        let i = 1;
+
+        while (i < 100) {
+            document.write("<hr width = " + i + "%>");
+            i++;
+        }
+
+    }
+</script>
 
 </body>
 </html>
