@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai tap for long nhau</title>
+</head>
+<body>
+<script>
+    let bang = "<table border='1' width='400' cellspacing='0' style='color: red;background-color: greenyellow'>";
+    for (let i = 1; i <= 10; i++) {
+        bang += "<tr>";
+        for (let j = 1; j <= 10; j++) {
+            bang += "<td>" + i * j + "</td>";
+        }
+        bang += "</tr>";
+    }
+    bang += "</table>";
+    document.write(bang);
+
+</script>
+</body>
+</html>
