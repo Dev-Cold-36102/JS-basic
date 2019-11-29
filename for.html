@@ -2,9 +2,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>bai tap for</title>
 </head>
 <body>
-$END$
+<h1 style="color:red;">bai tap 1</h1>
+<div id="out_id"></div>
+<script>
+   let out="";
+   for ( let i=0;i<5;i++) {
+       out+="the number is "+i+"<br/>";
+   }
+   document.getElementById("out_id").innerHTML=out;
+</script>
+<h1 style="color:greenyellow;">bai tap 2</h1>
+<button onclick="tingtong()" type="button">nhap n</button>
+<div id="output_id"></div>
+<script>
+    function tingtong(){
+        let a=prompt("n=");
+        let s=0;
+        for (let i=1;i<=a;i++) {
+            s+=i;
+        }
+        document.getElementById("output_id").innerHTML="tong cac so tu 1 den n="+s;
+    }
+
+</script>
 </body>
 </html>
