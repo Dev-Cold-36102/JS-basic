@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>day fibonaci</title>
+</head>
+<body>
+<h1 style="color:red;">bai tap lap</h1>
+ban muon hien bao nhieu so trong day fibonaci?<input type="text" id="input" value="">
+<button type="button" onclick="fibo()">hien ket qua</button>
+<br/>
+<h2 style="color:greenyellow;">bai 3: hien thi cac so fibo:</h2>
+<div id="output1"></div>
+<h2 style="color:greenyellow;">bai 4: so fibo dau tien chia het cho 5:</h2>
+<div id="output2"></div>
+<h2 style="color:greenyellow;">bai 5:tong cac so fibo ben tren:</h2>
+<div id="output3"></div>
+<h2 style="color:greenyellow;">bai7 :</h2>
+<div id="output4"></div>
+<h2 style="color:greenyellow;">bai8 :</h2>
+<button type="button" onclick="play()">choi game doan chu</button>
+<script>
+    function fibo() {
+        let n1 = 0, n2 = 1, n3, dem = 0, day = "0 1 ", total = 1;
+        while (dem < parseInt(document.getElementById("input").value) - 2) {
+            n3 = n1 + n2;
+            day += n3 + " ";
+            n1 = n2;
+            n2 = n3;
+            dem += 1;
+            total += n3;
+            if (n3 % 5 == 0) {
+                document.getElementById("output2").innerHTML = n3;
+            }
+        }
+        document.getElementById("output1").innerHTML = day;
+        document.getElementById("output3").innerHTML = total;
+    }
+
+    let day1 = " ";
+    for (let i = 1; i <= 100; i++) {
+        if ((i % 3 == 0) && (i % 5 != 0)) {
+            day1 += "Fizz  " + "";
+        } else if ((i % 5 == 0) && (i % 3 != 0)) {
+            day1 += "Buzz  " + "";
+        } else if (i % 15 == 0) {
+            day1 += "FizzBuzz  " + "";
+        } else {
+            day1 += i + "   ";
+        }
+    }
+    document.getElementById("output4").innerHTML = day1;
+
+    function play() {
+        let soluot = 0;
+        let a = parseInt(prompt("ban muon doan tron khoang lon hon bao nhieu?").value);
+        let b = parseInt(prompt("va nho hon bao nhieu?").value);
+        let c = (Math.floor(Math.random() * (b - a)) + a);
+        while (soluot <= 2) {
+            let d = parseInt(prompt("ban doan la so nao:").value);
+            if (d == c) {
+                alert("chuc mung!");
+                break;
+            } else if (d < c) {
+                alert("so ban chon nho hon");
+
+            } else {
+                alert("so ban chon lon hon");
+            }
+            soluot++;
+        }
+        alert("thua roi!")
+
+    }
+</script>
+</body>
+</html>
