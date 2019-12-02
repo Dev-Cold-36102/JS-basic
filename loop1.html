@@ -21,7 +21,7 @@ ban muon hien bao nhieu so trong day fibonaci?<input type="text" id="input" valu
 <button type="button" onclick="play()">choi game doan chu</button>
 <script>
     function fibo() {
-        let n1 = 0, n2 = 1, n3, dem = 0, day = "0 1 ", total = 1;
+        let n1 = 0, n2 = 1, n3, dem = 0, day = "0 1 ", total = 1,diemdung=0;
         while (dem < parseInt(document.getElementById("input").value) - 2) {
             n3 = n1 + n2;
             day += n3 + " ";
@@ -29,12 +29,14 @@ ban muon hien bao nhieu so trong day fibonaci?<input type="text" id="input" valu
             n2 = n3;
             dem += 1;
             total += n3;
-            if (n3 % 5 == 0) {
-                document.getElementById("output2").innerHTML = n3;
+            if (n3%5==0&&diemdung<1) {
+                document.getElementById("output2").innerHTML=n3;
+                diemdung+=1;
             }
         }
         document.getElementById("output1").innerHTML = day;
         document.getElementById("output3").innerHTML = total;
+
     }
 
     let day1 = " ";
