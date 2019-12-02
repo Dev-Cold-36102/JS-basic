@@ -14,7 +14,7 @@ ban muon hien bao nhie so nguyen to dau tien? <input type="text" id="input_id" v
         let i = 2, dem = 0, day = "";
         while (dem < parseInt(document.getElementById("input_id").value)) {
             let uoc = 0;
-            for (let j = 1; j < i; j++) {
+            for (let j = 1; j <= i/2; j++) {
                 if (i % j == 0) {
                     uoc += 1;
                 }
