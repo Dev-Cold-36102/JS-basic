@@ -2,9 +2,51 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Faking Textarea on Typing</title>
 </head>
 <body>
-$END$
+<h1 style="color:green;">Type anything slowly</h1>
+<textarea rows="10" cols="50" onkeydown="typing();" id="txt"></textarea>
+<script>
+    let arr = new Array();
+    arr[1] = "T";
+    arr[2] = "O";
+    arr[3] = "I";
+    arr[4] = " ";
+    arr[5] = "L";
+    arr[6] = "A";
+    arr[7] = " ";
+    arr[8] = "D";
+    arr[9] = "E";
+    arr[10] = "V";
+    arr[11] = "C";
+    arr[12] = "O";
+    arr[13] = "L";
+    arr[14] = "D";
+    arr[15] = " ";
+    arr[16] = "!";
+    let hienthi = "";
+
+    function typing() {
+        let input = document.getElementById("txt");
+        let txt = input.value, length = txt.length;
+        if (length > 0) {
+            for (let i = 1; i <= length; i++) {
+                hienthi += arr[i];
+
+                if (i == arr.length) {
+                    hienthi = "";
+                    input.value = "";
+
+                }
+            }
+        }
+        input.value = hienthi;
+        hienthi = "";
+        setTimeout("typing()", 1);
+
+
+    }
+</script>
 </body>
 </html>
