@@ -2,9 +2,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>so nguyen to</title>
 </head>
 <body>
-$END$
+<h1>hien thi n so nguyen to dau tien</h1>
+ban muon hien bao nhie so nguyen to dau tien? <input type="text" id="input_id" value="">
+<button type="button" onclick="prime()">xem ket qua</button>
+<div id="out_id"></div>
+<script>
+    function prime() {
+        let i = 2, dem = 0, day = "";
+        while (dem < parseInt(document.getElementById("input_id").value)) {
+            let uoc = 0;
+            for (let j = 1; j < i; j++) {
+                if (i % j == 0) {
+                    uoc += 1;
+                }
+            }
+            if (uoc == 1) {
+                dem += 1;
+                day += " " + i;
+            }
+            i += 1;
+        }
+        document.getElementById("out_id").innerHTML = day;
+    }
+</script>
 </body>
 </html>
