@@ -21,7 +21,7 @@ ban muon hien bao nhieu so trong day fibonaci?<input type="text" id="input" valu
 <button type="button" onclick="play()">choi game doan chu</button>
 <script>
     function fibo() {
-        let n1 = 0, n2 = 1, n3, dem = 0, day = "0 1 ", total = 1,diemdung=0;
+        let n1 = 0, n2 = 1, n3, dem = 0, day = "0 1 ", total = 1, diemdung = 0;
         while (dem < parseInt(document.getElementById("input").value) - 2) {
             n3 = n1 + n2;
             day += n3 + " ";
@@ -29,9 +29,9 @@ ban muon hien bao nhieu so trong day fibonaci?<input type="text" id="input" valu
             n2 = n3;
             dem += 1;
             total += n3;
-            if (n3%5==0&&diemdung<1) {
-                document.getElementById("output2").innerHTML=n3;
-                diemdung+=1;
+            if (n3 % 5 == 0 && diemdung < 1) {
+                document.getElementById("output2").innerHTML = n3;
+                diemdung += 1;
             }
         }
         document.getElementById("output1").innerHTML = day;
@@ -55,18 +55,18 @@ ban muon hien bao nhieu so trong day fibonaci?<input type="text" id="input" valu
 
     function play() {
         let soluot = 0;
-        let a = parseInt(prompt("ban muon doan tron khoang lon hon bao nhieu?").value);
-        let b = parseInt(prompt("va nho hon bao nhieu?").value);
+        let a = parseInt(prompt("ban muon doan tron khoang lon hon bao nhieu?"));
+        let b = parseInt(prompt("va nho hon bao nhieu?"));
         let c = (Math.floor(Math.random() * (b - a)) + a);
         while (soluot <= 2) {
-            let d = parseInt(prompt("ban doan la so nao:").value);
+            let d = parseInt(prompt("ban doan la so nao:"));
             if (d == c) {
                 alert("chuc mung!");
-                break;
+                return;
             } else if (d < c) {
                 alert("so ban chon nho hon");
 
-            } else {
+            } else if (d > c) {
                 alert("so ban chon lon hon");
             }
             soluot++;
