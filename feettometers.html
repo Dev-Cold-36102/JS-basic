@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>convert</title>
+</head>
+<body>
+convert feet to meter<input type="number"
+                            oninput="feettometer(this.value)" onchange="convert(this.value)"><br/>
+<p>meter: <span id="output1"></span></p>
+<br/><br/>
+convert meter to feet<input type="number"
+                            oninput="metertofeet(this.value)" onchange="convert(this.value)"><br/>
+<p>feet: <span id="output2"></span></p>
+<script>
+    function feettometer(value) {
+        value=parseFloat(value);
+        document.getElementById("output1").innerHTML=0.305*value;
+
+    }
+    function metertofeet(value) {
+        value=parseFloat(value);
+        document.getElementById("output2").innerHTML=3.279*value;
+
+    }
+</script>
+</body>
+</html>
