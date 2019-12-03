@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>thao tac voi mang</title>
+</head>
+<body>
+<h1 style="color:green;">bai tap4</h1>
+nhap vao gia tri can kiem tra:
+<input type="text" id="input">
+<button type="button" onclick="main()">check</button>
+<br/>
+<div id="output"></div>
+<script>
+    function check(num) {
+        if (parseFloat(num) == num) {
+            document.getElementById("output").innerHTML = "do la ki tu so";
+        } else {
+            document.getElementById("output").innerHTML = "do khong phai ki tu so";
+        }
+
+    }
+
+    function main() {
+        let num = document.getElementById("input");
+        let value = num.value;
+        check(value);
+
+    }
+</script>
+</body>
+</html>
