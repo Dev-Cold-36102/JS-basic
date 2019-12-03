@@ -2,9 +2,49 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>tim gia tri nho nhat cua mang</title>
 </head>
 <body>
-$END$
+nhap phan tu vao mang:<input type="text" id="input" style="background-color: azure">
+<button type="button" onclick="add()" style="color: red">add</button>
+<button type="button" onclick="diplay()" style="color:green;">display array</button>
+<br/>
+<div id="output"></div>
+<div id="output1"></div>
+<script>
+    let arr = new Array();
+    let input = document.getElementById("input");
+
+    function add() {
+        let value = input.value;
+        if (value == "") {
+            alert("please enter the element!");
+        } else {
+            arr.push(value);
+            input.value = "";
+        }
+    }
+
+    function diplay() {
+        if (arr.length < 1) {
+            alert("please add the element!");
+        } else {
+            document.getElementById("output").innerHTML = "mang cua ban: " + arr;
+            mincheck();
+        }
+
+    }
+
+    function mincheck() {
+        let min = arr[0];
+        for (let i = 1; i < arr.length; i++) {
+            if (arr[i] < min) {
+                min = arr[i];
+            }
+        }
+        document.getElementById("output1").innerHTML = "phan tu nho nhat trong mang: " + min;
+
+    }
+</script>
 </body>
 </html>
