@@ -5,7 +5,7 @@
     <title>choi co caro</title>
 </head>
 <body>
-<p id="carogame" />
+<p id="carogame"/>
 <input type="button" value="Change Value" onclick="changeValue()">
 <script>
     let b = document.getElementById("carogame");
@@ -14,7 +14,7 @@
     let data = "";
     for (let i = 0; i < 10; i++) {
         board[i] = new Array();
-        for (let j=0;j<10;j++) {
+        for (let j = 0; j < 10; j++) {
             board[i].push(".");
         }
     }
@@ -29,8 +29,9 @@
 
     data += "<br/><br/><input type='button' value='Change Value' onclick='changeValue()'>"
     b.innerHTML = data;
+
     function changeValue() {
-        let element=prompt("X or O?");
+        let element = prompt("X or O?");
         let positionX = prompt("X: ");
         let positionY = prompt("Y: ");
         data = "";
@@ -39,25 +40,18 @@
             data += "<br/>";
             for (let j = 0; j < 10; j++) {
                 data += board[i][j] + "&nbsp;&nbsp;&nbsp;&nbsp;";
+                if (board[i][j] != ".") {
+                    if (board[i][j] == board[i][j + 1] && board[i][j] == board[i][j + 2]) {
+                        alert(board[i][j] + " win");
+                    }
+                    if (board[i][j] == board[i + 1][j] && board[i][j] == board[i + 2][j]) {
+                        alert(board[i][j] + " win");
+                    }
+                }
             }
         }
         data += "<br/><br/><input type='button' value='Change Value' onclick='changeValue()'>"
         b.innerHTML = "<hr/>" + data;
-        for (let i = 0; i < 10; i++) {
-            for (let j = 0; j < 10; j++) {
-                if (board[i][j]!=".") {
-                    if (board[i][j] == board[i][j + 1] && board[i][j] == board[i][j + 2]) {
-                        alert(board[i][j] + " win");
-                        break;
-                    }
-                    if (board[i][j] == board[i + 1][j] && board[i][j] == board[i + 2][j]) {
-                        alert(board[i][j] + " win");
-                        break;
-                    }
-                }
-            }
-    }
-
     }
 </script>
 </body>
