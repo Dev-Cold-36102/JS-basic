@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai tap mang</title>
+</head>
+<body style="background-color: floralwhite">
+nhap phan tu vao mang:<input type="number" id="input" style="background-color: aliceblue;color: blue">
+<button style="background-color: fuchsia;" type="button" onclick="add()">ADD</button>
+<button style="background-color: chartreuse;" type="button" onclick="display()">DISPLAY</button>
+<br/>
+mang ban vua nhap:
+<div id="output"></div>
+<br/>
+1.min:
+<div id="min"></div>
+<br/>
+2.max:
+<div id="max"></div>
+<br/>
+3.gia tri duong nho nhat:
+<div id="minduong"></div>
+<br/>
+4.gia tri am lon nhat:
+<div id="maxam"></div>
+<br/>
+5.mang sau khi sap xep:
+<div id="order"></div>
+<br/><br/>
+<button style="background-color: red" type="button" onclick="insert()">INSERT</button>
+<br/>
+6.mang sau khi chen:
+<div id="insert"></div>
+<br/><br/>
+<br/>
+<button style="background-color: greenyellow" type="button" onclick="del()">delete</button>
+<br/>
+7.mang sau khi xoa:
+<div id="delete"></div>
+<br/><br/><br/>
+8.chen phan tu sau khi sap xep:
+<button style="background-color: cadetblue" type="button" onclick="insertNotchange()">insert</button>
+<div id="insert1"></div>
+<br/>
+<button style="background-color: azure" type="button" onclick="reverse()">reverse</button>
+<br/>
+9.mang sau khi dao nguoc:
+<div id="reverse"></div>
+
+<script>
+    let arr = [];
+
+    function add() {
+        let input = document.getElementById("input");
+        arr.push(parseFloat(input.value));
+        document.getElementById("input").value = "";
+    }
+
+    function maxmin() {
+        let min = parseFloat(arr[0]);
+        let max = parseFloat(arr[0]);
+        for (let i = 1; i < arr.length; i++) {
+            if (arr[i] < min) {
+                min = arr[i];
+            }
+            if (max < arr[i]) {
+                max = arr[i];
+            }
+        }
+        document.getElementById("min").innerHTML = min;
+        document.getElementById("max").innerHTML = max;
+    }
+
+    function amduongmaxmin() {
+        let amlonnhat, duongnhonhat;
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] < 0) {
+                amlonnhat = arr[i];
+            } else {
+                duongnhonhat = arr[i];
+            }
+
+        }
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] < 0 && arr[i] > amlonnhat) {
+                amlonnhat = arr[i];
+            }
+            if (arr[i] >= 0 && arr [i] < duongnhonhat) {
+                duongnhonhat = arr[i];
+            }
+
+        }
+        document.getElementById("minduong").innerHTML = duongnhonhat;
+        document.getElementById("maxam").innerHTML = amlonnhat;
+    }
+
+    function display() {
+        maxmin();
+        document.getElementById("output").innerHTML = " " + arr;
+        amduongmaxmin();
+        order();
+    }
+
+
+    function insert() {
+        let value = prompt("please enter the number you want to insert:");
+        let k = prompt("please enter the position you want to insert:(>=0)");
+        arr[arr.length] = 0;
+        for (let i = arr.length - 1; i > k; i--) {
+            arr[i] = arr[i - 1];
+        }
+        arr[k] = value;
+        document.getElementById("insert").innerHTML = arr;
+
+    }
+
+    function del() {
+        let k = parseInt(prompt("please enter the position you want to delete:(>=0)"));
+        let arrfake = Array();
+        for (let i = 0; i < k; i++) {
+            arrfake[i] = arr[i];
+        }
+        for (let i = k + 1; i < arr.length; i++) {
+            arrfake[i - 1] = arr[i];
+        }
+
+        document.getElementById("delete").innerHTML = arrfake;
+
+    }
+
+    function order() {
+        for (let i = 0; i < arr.length; i++) {
+            for (let j = i + 1; j < arr.length; j++) {
+                if (arr[j] < arr[i]) {
+                    let temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
+                }
+
+            }
+
+        }
+        document.getElementById("order").innerHTML = arr;
+
+    }
+
+    function insertNotchange() {
+        let input = prompt("please enter the number:");
+        for (let i = 0; i < arr.length; i++) {
+            if (input < arr[i]) {
+                arr.push(0);
+                for (let j = arr.length - 1; j >= i; j--) {
+                    arr[j] = arr[j - 1];
+                }
+                arr[i] = input;
+                break;
+            }
+
+        }
+        document.getElementById("insert1").innerHTML = arr;
+
+    }
+
+    function reverse() {
+        let i, j;
+        for (i = 0, j = arr.length - 1; i < arr.length / 2 - 1, j > arr.length / 2 - 1; i++, j--) {
+            let temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+
+        }
+        document.getElementById("reverse").innerHTML = arr;
+    }
+</script>
+</body>
+</html>
