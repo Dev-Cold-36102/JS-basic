@@ -2,9 +2,58 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>luyen tap array 1</title>
 </head>
 <body>
-$END$
+<h1 style="color:green;">bai 8:bai tap sap xep mang</h1>
+nhap mang:<input type="text" id="input_id">
+<button type="button" name="add" onclick="add()">add element</button>
+<button type="button" name="display" onclick="display()">display the array</button>
+<div id="output1_id"></div>
+<br/>
+<button type="button" onclick="sort()">change</button>
+<div id="output2_id"></div><br/>
+
+<h1 style="color: orangered"> bai 5: dem so nguyen am trong mang</h1>
+<button type="button" onclick="demsonguyenam()">enter</button>
+<div id="songuyenam"></div>
+<div id="songuyenam1"></div>
+<script>
+    let arr = new Array();
+
+    function add() {
+        let element = document.getElementById("input_id").value;
+        arr.push(element);
+        document.getElementById("input_id").value = "";
+
+    }
+
+    function display() {
+        document.getElementById("output1_id").innerHTML = arr;
+    }
+
+    function sort() {
+        arr.sort(function (a, b) {
+            return a - b;
+
+        })
+        document.getElementById("output2_id").innerHTML = arr;
+
+    }
+
+    function demsonguyenam() {
+        let str=prompt("please enter the string:");
+        let count=0;
+        document.getElementById("songuyenam").innerHTML="chuoicuaban:"+str;
+        for (let i = 0; i <str.length ; i++) {
+            if (str[i]=="-"&&parseInt(str[i+1])==str[i+1]) {
+                count+=1;
+            }
+        }
+        document.getElementById("songuyenam1").innerHTML="chuoi cua ban co "+count+" so nguyen am";
+
+    }
+
+</script>
 </body>
 </html>
