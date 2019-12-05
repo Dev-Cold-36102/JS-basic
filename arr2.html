@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai tap mang 2</title>
+</head>
+<body>
+nhap phan tu vao mang:<input type="text" id="input" style="background-color: aliceblue;color: blue">
+<button style="background-color: fuchsia;" type="button" onclick="add()">ADD</button>
+<button style="background-color: chartreuse;" type="button" onclick="display()">DISPLAY</button>
+<br/>
+mang ban vua nhap:
+<div id="output"></div>
+<br/>
+
+<div id="kituso"></div>
+<br/>
+Nhap chuoi:
+<button type="button" onclick="demsotu()">ENTER</button>
+<br/>
+so tu trong chuoi:
+<div id="sotu"></div>
+<br/><br/>
+<h2>kiem tra hai chuoi giong nhau</h2>
+<button type="button" onclick="checkString()">ENTER</button>
+<br/>
+<h2>thay the ky tu</h2>
+<button type="button" onclick="change()">ENTER</button>
+<br/>
+<div id="change"></div>
+
+
+<script>
+    let arr = [];
+
+    function add() {
+        let input = document.getElementById("input");
+        arr.push(input.value);
+        document.getElementById("input").value = "";
+    }
+
+    function checkNumber() {
+        let numArr = [];
+        for (let i = 0; i < arr.length; i++) {
+            if (parseFloat(arr[i]) == arr[i]) {
+                numArr[i] = arr[i];
+            }
+        }
+        document.getElementById("kituso").innerHTML = "ki tu so trong mang:" + numArr;
+
+    }
+
+    function display() {
+        document.getElementById("output").innerHTML = " " + arr;
+        checkNumber();
+    }
+
+    function demsotu() {
+        let str = prompt("please enter the string:");
+        let count = 1;
+        for (let i = 1; i < str.length - 1; i++) {
+            if (str[i] != " " && str[i + 1] == " ") {
+                count += 1;
+            }
+        }
+        if (count == 1) {
+            count = 0;
+        }
+        document.getElementById("sotu").innerHTML = count;
+    }
+
+
+    function checkString() {
+        let str1 = prompt("please enter the string 1:");
+        let str2 = prompt("please enter the string 2:");
+        if (str1.length != str2.length) {
+            alert("hai chuoi khong giong nhau");
+        } else {
+            for (let i = 0; i < str1.length; i++) {
+                if (str1[i] != str2[i]) {
+                    alert("hai chuoi khong giong nhau");
+                    break;
+                }
+            }
+            alert("hai chuoi giong nhau!");
+        }
+
+    }
+
+    function change() {
+        let str = prompt("please enter the string:");
+        let count = 0;
+        let day = "chuoi sau khi doi: ";
+        for (let i = 0; i < str.length; i++) {
+            if (str[i] != "-") {
+                day += str[i];
+            } else {
+                day += "_";
+                count += 1;
+            }
+        }
+        if (count == 0) {
+            alert("chuoi cua ban khong co ki tu'-'");
+        } else {
+            document.getElementById("change").innerHTML = day;
+        }
+    }
+</script>
+</body>
+</html>
