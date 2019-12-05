@@ -6,51 +6,59 @@
 </head>
 <body>
 <p id="carogame"/>
-<input type="button" value="Change Value" onclick="changeValue()">
+<input type="button" value="Change Value X" onclick="changeValue('x')">
+<input type="button" value="Change Value O" onclick="changeValue('o')">
 <script>
     let b = document.getElementById("carogame");
 
     let board = [];
     let data = "";
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 20; i++) {
         board[i] = new Array();
-        for (let j = 0; j < 10; j++) {
-            board[i].push(".");
+        for (let j = 0; j < 20; j++) {
+            board[i].push(". ");
         }
     }
 
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 20; i++) {
         data += "<br/>";
-        for (let j = 0; j < 10; j++) {
+        for (let j = 0; j < 20; j++) {
             data += board[i][j] + "&nbsp;&nbsp;&nbsp;&nbsp;";
         }
 
     }
 
-    data += "<br/><br/><input type='button' value='Change Value' onclick='changeValue()'>"
+    data += "<br/><br/><input type=\"button\" value=\"Change Value X\" onclick=\"changeValue('x')\">\n" +
+        "<input type=\"button\" value=\"Change Value O\" onclick=\"changeValue('o')\">"
     b.innerHTML = data;
 
-    function changeValue() {
-        let element = prompt("X or O?");
+    function changeValue(element) {
         let positionX = prompt("X: ");
         let positionY = prompt("Y: ");
         data = "";
         board[positionX][positionY] = element;
-        for (let i = 0; i < 10; i++) {
+        for (let i = 0; i < 20; i++) {
             data += "<br/>";
-            for (let j = 0; j < 10; j++) {
+            for (let j = 0; j < 20; j++) {
                 data += board[i][j] + "&nbsp;&nbsp;&nbsp;&nbsp;";
-                if (board[i][j] != ".") {
+                if (board[i][j] != ". ") {
                     if (board[i][j] == board[i][j + 1] && board[i][j] == board[i][j + 2]) {
                         alert(board[i][j] + " win");
                     }
                     if (board[i][j] == board[i + 1][j] && board[i][j] == board[i + 2][j]) {
                         alert(board[i][j] + " win");
                     }
+                    if (board[i][j] == board[i + 1][j - 1] && board[i][j] == board[i + 2][j - 2]) {
+                        alert(board[i][j] + " win");
+                    }
+                    if (board[i][j] == board[i + 1][j + 1] && board[i][j] == board[i + 2][j + 2]) {
+                        alert(board[i][j] + " win");
+                    }
                 }
             }
         }
-        data += "<br/><br/><input type='button' value='Change Value' onclick='changeValue()'>"
+        data += "<br/><br/><input type=\"button\" value=\"Change Value X\" onclick=\"changeValue('x')\">\n" +
+            "<input type=\"button\" value=\"Change Value O\" onclick=\"changeValue('o')\">"
         b.innerHTML = "<hr/>" + data;
     }
 </script>
