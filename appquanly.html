@@ -2,9 +2,88 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>ứng dụng quản lí</title>
+    <style>
+        table {;
+            width: 100%;
+        }
+
+        table,
+        th,
+        td {
+
+            width: 850px;
+            height: 50px;
+            text-align: center;
+            vertical-align: mid;
+        }
+
+
+        .list tr:nth-child(2n) {
+            background: lightpink;
+        }
+    </style>
 </head>
-<body>
-$END$
+<body style="background-color: bisque">
+<h1 style="color:red;">Add New Product</h1>
+<form style="background-color:gainsboro;width: 270px">
+    <br/>
+    <input id="input" placeholder="New Product" style="margin-left: 30px" type="text">
+    <button onclick="add()" style="background-color: green;color: white" type="reset">ADD</button>
+    <br/><br/>
+</form>
+<br/><br/>
+<table style="width: 1000px">
+    <tr>
+        <td><b>Display All Product</td>
+        <td style="margin-right: 30px;color: orangered">
+            <div id="amoutOfproduct"></div>
+        </td>
+    </tr>
+</table>
+<p id="display"/>;
+
+
+<script>
+    let nameProduct = ["Iphone4", "Iphone5", "Iphone5s", "Iphone6", "Iphone6s", "Iphone6Plus", "IphoneXS"];
+
+
+    function draw() {
+        let display = " <table class=\"list\" cellspacing='0'>";
+        for (let i = 0; i < nameProduct.length; i++) {
+            editbutton = "<button id='" + i + "'  style=\"color: white ;background-color: forestgreen\" onclick=\"edit(this.id)\">Edit</button>";
+            delbutton = "<button id='" + i + "' style=\"color: white ;background-color: forestgreen\" onclick=\"del(this.id)\">Delete</button>";
+            display += "<tr><td>" + nameProduct[i] + "</td><td>" + editbutton + "</td><td>" + delbutton + "</td></tr>";
+        }
+        display += "</table>";
+        console.log(display);
+        document.getElementById("display").innerHTML = display;
+        document.getElementById("amoutOfproduct").innerHTML = nameProduct.length + " products";
+
+    }
+
+    function add() {
+        nameProduct.unshift(document.getElementById("input").value);
+        document.getElementById("input").value = "";
+        draw();
+    }
+
+    function edit(id) {
+        nameProduct[id] = prompt("EDIT INTO:");
+        draw();
+        console.log(nameProduct);
+    }
+
+    function del(id) {
+        if (confirm("ARE YOU SURE?")) {
+            nameProduct.splice(id, 1);
+        }
+        draw();
+    }
+
+    draw();
+
+</script>
 </body>
 </html>
+
