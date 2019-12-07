@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>palindrome </title>
+</head>
+<body>
+nhap chuoi can kiem tra:
+<button onclick="enterstring()" type="button">ENTER</button>
+<script>
+    function enterstring() {
+        let input = prompt("please enter the string:");
+        let i = 0, j = input.length - 1;
+        check(input, i, j);
+    }
+
+    function check(value, i, j) {
+        if (i <= (value.length) / 2 && j >= (value.length) / 2) {
+            console.log(value[i]);
+            console.log(value[j]);
+            if (value[i] != value[j]) {
+                alert("that string is not a palindrome one! ");
+                return;
+            } else {
+                i++;
+                j--;
+                check(value, i, j);
+            }
+
+        } else {
+            alert("that string is a palindrome one!");
+            return;
+        }
+    }
+</script>
+</body>
+</html>
