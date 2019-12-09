@@ -63,14 +63,22 @@
     }
 
     function add() {
-        nameProduct.unshift(document.getElementById("input").value);
+        if (document.getElementById("input").value == "") {
+            alert("please enter the product name!");
+        } else {
+            nameProduct.unshift(document.getElementById("input").value);
+        }
         document.getElementById("input").value = "";
         draw();
     }
 
     function edit(id) {
-        nameProduct[id] = prompt("EDIT INTO:");
-        draw();
+        do {
+            nameProduct[id] = prompt("please enter the name of product:");
+        } while (nameProduct[id] == "")
+        if (nameProduct[id] != null) {
+            draw();
+        }
         console.log(nameProduct);
     }
 
@@ -80,7 +88,6 @@
         }
         draw();
     }
-
     draw();
 
 </script>
