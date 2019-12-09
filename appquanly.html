@@ -11,13 +11,11 @@
         table,
         th,
         td {
-
             width: 850px;
             height: 50px;
             text-align: center;
             vertical-align: mid;
         }
-
 
         .list tr:nth-child(2n) {
             background: lightpink;
@@ -42,11 +40,8 @@
     </tr>
 </table>
 <p id="display"/>;
-
-
 <script>
     let nameProduct = ["Iphone4", "Iphone5", "Iphone5s", "Iphone6", "Iphone6s", "Iphone6Plus", "IphoneXS"];
-
 
     function draw() {
         let display = " <table class=\"list\" cellspacing='0'>";
@@ -59,7 +54,6 @@
         console.log(display);
         document.getElementById("display").innerHTML = display;
         document.getElementById("amoutOfproduct").innerHTML = nameProduct.length + " products";
-
     }
 
     function add() {
@@ -88,6 +82,7 @@
         }
         draw();
     }
+
     draw();
 
 </script>
