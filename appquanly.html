@@ -60,7 +60,17 @@
         if (document.getElementById("input").value == "") {
             alert("please enter the product name!");
         } else {
-            nameProduct.unshift(document.getElementById("input").value);
+            for (let i = 0; i < nameProduct.length; i++) {
+                if (document.getElementById("input").value == nameProduct[i]) {
+                    if (confirm("The product already exists!please enter again or continue! ")) {
+                        nameProduct.unshift(document.getElementById("input").value);
+                        break;
+                    } else
+                        break;
+                } else
+                    nameProduct.unshift(document.getElementById("input").value);
+                break;
+            }
         }
         document.getElementById("input").value = "";
         draw();
